@@ -1,59 +1,53 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 💻 Gestión de Usuarios (CRUD - Laravel con Breeze)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Proyecto desarrollado para la gestión administrativa de usuarios, implementando autenticación (Login/Registro) con Laravel Breeze y una interfaz CRUD completa para administradores, utilizando PostgreSQL como base de datos.
 
-## About Laravel
+## 🌟 Características Principales
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+* **Tecnología:** Laravel 11+
+* **Base de Datos:** PostgreSQL
+* **Frontend:** Blade & Tailwind CSS (con Vite)
+* **Seguridad:** Autenticación completa (Login, Registro, Recuperación de Contraseña) y protección CSRF.
+* **Administración:** CRUD completo para la entidad `User` (`/users`).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🛠️ Requisitos del Sistema
 
-## Learning Laravel
+Asegúrate de tener instalado el siguiente software antes de comenzar:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+* **PHP:** Versión 8.2 o superior
+* **Composer:** Última versión estable
+* **Node.js & npm:** (Para la compilación de Tailwind CSS)
+* **PostgreSQL:** Servidor de base de datos operativo.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🚀 Guía de Instalación y Configuración
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Sigue estos pasos para poner la aplicación en funcionamiento en tu entorno local.
 
-### Premium Partners
+### 1. Clonar el Repositorio
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Si aún no tienes el proyecto, clónalo desde GitHub:
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+git clone [URL_DE_TU_REPOSITORIO]
+cd [name_project]
+ 
+2. Configuración del EntornoDebes configurar la clave de seguridad y la conexión a la base de datos.Crear el archivo .env: Copia la plantilla de configuración.Bashcp .env.example .env
+Generar la Clave de Aplicación:Bashphp artisan key:generate
+Configurar PostgreSQL: Abre el archivo .env y ajusta las variables de conexión a tu servidor local de PostgreSQL.Fragmento de códigoDB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=user_management_db 
+DB_USERNAME=postgres
+DB_PASSWORD=tu_contraseña_secreta 
+3. Instalar DependenciasInstala las dependencias de PHP y JavaScript/CSS:Bashcomposer install
+npm install
+4. Ejecutar Base de Datos (Migraciones y Seeders)Ejecuta las migraciones para crear las tablas y luego inserta el usuario administrador de prueba.Ejecutar Migraciones: Crea la tabla users y las tablas de autenticación.Bashphp artisan migrate
+Ejecutar Seeder de Administrador: Inserta el usuario por defecto.Bashphp artisan db:seed --class=AdminUserSeeder
+(Ver las credenciales del Seeder en la sección de Usuarios de Prueba).▶️ Ejecución del ProyectoPara correr la aplicación, debes tener dos terminales abiertas:Terminal 1: Servidor de Backend (Laravel)Bashphp artisan serve
+Terminal 2: Compilador de Frontend (Vite)NOTA: Mantén este comando corriendo. Si lo cierras, los estilos de Tailwind CSS no se cargarán.Bashnpm run dev
+Una vez que ambos servidores estén activos, puedes acceder a la aplicación en http://127.0.0.1:8000.👤 Usuarios de PruebaPara acceder a la funcionalidad de administración, inicia sesión con el usuario creado por el Seeder:RolCorreo ElectrónicoContraseñaAdministradoradmin@example.compasswordLa gestión de usuarios CRUD se encuentra en la ruta /users (solo accesible después de iniciar sesión).📚 Notas Adicionales (Referencia de Desarrollo)Aquí se listan los comandos clave utilizados para la construcción de este proyecto.Comando/TareaPropósitophp artisan breeze:installInstalación del scaffolding de Login/Registro/Vistas.php artisan make:controller UserController --resourceCreación del controlador con los 7 métodos CRUD.php artisan make:seeder AdminUserSeederCreación del archivo para insertar el usuario administrador.Protección de RutasLa ruta Route::resource('users', ...) está envuelta en el middleware auth para redirigir al Login.
+---
