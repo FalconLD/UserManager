@@ -31,11 +31,13 @@ Sigue estos pasos para poner la aplicación en funcionamiento en tu entorno loca
 
 Si aún no tienes el proyecto, clónalo desde GitHub:
 
-```bash
+
 git clone [URL_DE_TU_REPOSITORIO]
 cd [name_project]
  
-2. Configuración del EntornoDebes configurar la clave de seguridad y la conexión a la base de datos.Crear el archivo .env: Copia la plantilla de configuración.Bashcp .env.example .env
+## 2. Configuración del Entorno
+
+Debes configurar la clave de seguridad y la conexión a la base de datos.Crear el archivo .env: Copia la plantilla de configuración.Bashcp .env.example .env
 Generar la Clave de Aplicación:Bashphp artisan key:generate
 Configurar PostgreSQL: Abre el archivo .env y ajusta las variables de conexión a tu servidor local de PostgreSQL.Fragmento de códigoDB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
